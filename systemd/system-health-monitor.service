@@ -1,0 +1,15 @@
+[Unit]
+Description=System Health Monitor
+After=network.target
+
+[Service]
+User=youruser
+Group=yourgroup
+WorkingDirectory=/path/to/system-health-monitor
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/path/to/system-health-monitor/.venv/bin/python /path/to/system-health-monitor/monitor.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
